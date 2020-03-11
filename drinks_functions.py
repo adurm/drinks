@@ -20,8 +20,7 @@ def write_file(file_name):
     # If file exists, check if the user really wants to rewrite the file
     try:
         open(file_name)
-        user_input = input(f'''
-WARNING: You are about to rewrite {file_name} since it already exists.
+        user_input = input(f'''WARNING: You are about to rewrite {file_name} since it already exists.
 To confirm this option, type 'confirm'.
 Otherwise, go back to the main menu.
 ''')
@@ -88,28 +87,44 @@ def append_file(file_name):
         file.write(food)
 
 
+# Command List
+def print_command_list():
+    return '''===== COMMAND LIST =====
+To read an order: read
+To make an order: write
+To change an order: append
+To view commands: commands
+To quit the program: quit
+========================
+'''
+
 def run_program():
+
+    print(print_command_list())
 
     # Keep taking input until the user types 'quit'
     while True:
-        user_input = input("Task: ")
+        user_input = input("Command: ")
 
         if user_input == 'quit':
             break
 
-        # Ask for file name
-        file_name = input("Name of order: ")
+        if user_input == 'commands':
+            print(print_command_list())
 
         # Write file
-        if user_input == 'write':
+        elif user_input == 'write':
+            file_name = input("Write file: ")
             write_file(file_name)
 
         # Read file
         elif user_input == 'read':
+            file_name = input("Read file: ")
             read_file(file_name)
 
         # Append file
         elif user_input == 'append':
+            file_name = input("Append file: ")
             append_file(file_name)
 
 
