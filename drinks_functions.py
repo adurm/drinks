@@ -1,5 +1,6 @@
 # Function to handle reading a file
 def read_file(file_name):
+
     # Try open the file
     try:
         with open(file_name, 'r') as file:
@@ -13,9 +14,9 @@ def read_file(file_name):
     except FileNotFoundError as err:
         print("File not found.")
 
-
 # Function to handle writing a file
 def write_file(file_name):
+
     # If file exists, check if the user really wants to rewrite the file
     try:
         open(file_name)
@@ -54,9 +55,9 @@ Otherwise, go back to the main menu.
     for food in food_list:
         file.write(food)
 
-
 # Function to append file
 def append_file(file_name):
+
     # If file exists, read it
     try:
         file = open(file_name, 'r')
@@ -88,6 +89,7 @@ def append_file(file_name):
 
 
 def run_program():
+
     # Keep taking input until the user types 'quit'
     while True:
         user_input = input("Task: ")
@@ -109,5 +111,8 @@ def run_program():
         # Append file
         elif user_input == 'append':
             append_file(file_name)
+
+
+
 
 # TODO: amend crashes when file empty
